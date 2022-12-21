@@ -1,0 +1,17 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+}
+
+.form-border {
+    border: aliceblue 3px solid;
+    padding: 30px;
+    background: aliceblue;
+}
+
+.submit-button {
+    text-align: center;
+    margin-top: 10%;
+}

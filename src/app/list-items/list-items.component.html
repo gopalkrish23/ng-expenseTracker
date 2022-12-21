@@ -1,0 +1,36 @@
+<mat-grid-list cols="2" rowHeight="100px" style="position: fixed; bottom: 0; left: 0; background: white; width: 100%;" class="mat-elevation-z8">
+  <mat-grid-tile style="text-align: center;">
+    Total (INR) {{total_amount}}
+  </mat-grid-tile>
+  <mat-grid-tile style="text-align: right;">
+    <section>
+      <div class="example-button-row">
+        <button (click)="openModal()" mat-raised-button>Add</button>
+      </div>
+    </section>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<table mat-table matTableResponsive [dataSource]="dataSource" class="mat-elevation-z8" style="padding-bottom: 100px;">
+  <ng-container matColumnDef="item">
+    <th mat-header-cell *matHeaderCellDef> Item. </th>
+    <td mat-cell *matCellDef="let element" style="font-weight: 600;"> {{element.item}} </td>
+  </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price. </th>
+    <td mat-cell *matCellDef="let element"> INR {{element.price}} </td>
+  </ng-container>
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category. </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date. </th>
+    <td mat-cell *matCellDef="let element"> {{element.date.seconds * 1000 | date: 'dd/MM/yyyy'}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openModal(row)"></tr>
+</table>
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+</mat-paginator> -->
