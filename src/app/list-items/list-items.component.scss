@@ -115,3 +115,20 @@ mat-paginator, table, mat-grid-list {
     justify-content: center;
     width: 120px;
   }
+
+  .table-header {
+    top: 100px !important;
+  }
+
+  .nav-bar-top {
+    position: fixed; top: 0; left: 0;
+  }
+
+  .nav-bar-horizontal {
+    display: flex; 
+    flex-direction: row; 
+    gap: 1rem; 
+    width: 100%; 
+    height: 100px;
+    background: white;
+  }

@@ -26,7 +26,7 @@ export class ItemsService {
 
   async getItems(){
     const collectionRef = collection(this.db, 'items');
-    return await getDocs(collectionRef);
+    return (await getDocs(collectionRef));
   }
 
   deleteItem(docRef: any){

@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 70px;
 }
 
 .form-border {
@@ -14,4 +13,8 @@
 .submit-button {
     text-align: center;
     margin-top: 10%;
+}
+
+::ng-deep.mat-dialog-container {
+    padding: 0px !important;
 }
