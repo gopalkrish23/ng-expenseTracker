@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, deleteDoc, addDoc, updateDoc, orderBy } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, deleteDoc, addDoc, updateDoc, orderBy, query, startAt, limit, startAfter } from 'firebase/firestore/lite';
 import { Item } from './item';
 
 import { environment } from '../environments/environment';
@@ -26,7 +26,8 @@ export class ItemsService {
 
   async getItems(){
     const collectionRef = collection(this.db, 'items');
-    return (await getDocs(collectionRef));
+    const query1 = query(collectionRef, orderBy("date", 'desc'));
+    return (await getDocs(query1));
   }
 
   deleteItem(docRef: any){

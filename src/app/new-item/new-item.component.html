@@ -5,6 +5,10 @@
       <input matInput formControlName="item">
     </mat-form-field> <br />
     <mat-form-field>
+      <mat-label for="item">Shop name:</mat-label>
+      <input matInput formControlName="shop">
+    </mat-form-field> <br />
+    <mat-form-field>
       <mat-label for="item">Price:</mat-label>
       <input matInput type="number" formControlName="price">
     </mat-form-field> <br />
@@ -28,7 +32,22 @@
           <mat-icon>done</mat-icon>
         </ng-template>
       </ngx-mat-datetime-picker>
-    </mat-form-field> <br/>
+    </mat-form-field> <br />
+    <div class="sub-item-container" formArrayName="subItems" *ngIf="subItems.controls.length">
+      <mat-label>Sub items:</mat-label>
+      <div id="form-group" *ngFor="let item of subItems.controls; let i = index" [formGroupName]="i">
+        <mat-form-field>
+          <input type="text" formControlName="name" placeholder="Name" matInput>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput formControlName="quantity" placeholder="Quantity">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="number" formControlName="price" placeholder="Price" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button (click)="pushSubItem()">Add Itemlists</button>
     <div class="submit-button">
       <button mat-raised-button (click)="saveItem()">Save</button>
     </div>

@@ -18,3 +18,11 @@
 ::ng-deep.mat-dialog-container {
     padding: 0px !important;
 }
+
+.sub-item {
+    margin-top: 1rem;
+}
+
+.sub-item-container {
+    margin-top: 1rem;
+}
